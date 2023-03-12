@@ -27,7 +27,7 @@ WHERE c.Name = 'Appliances' OR c.Name = 'Games';
 
 /* DONE -- joins: find the product name, total # sold, and total price sold,
  for Eagles: Hotel California --You may need to use SUM() */
- SELECT p.Name AS 'ProductName', SUM(s.Quantity) AS 'TotalSold', SUM(s.PricePerUnit) AS 'TotalPriceSold'
+ SELECT p.Name AS 'ProductName', SUM(s.Quantity) AS 'TotalSold', SUM(s.PricePerUnit * s.Quantity) AS 'TotalPriceSold'
  FROM products AS p
  INNER JOIN sales AS s ON p.ProductID = s.ProductID
  WHERE p.Name = 'Eagles: Hotel California'
